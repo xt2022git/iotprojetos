@@ -14,12 +14,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Select from 'react-select';
 
+
 const ViewProduct = () => {
   const { id } = useParams();
   const { product, isLoading, error } = useProduct(id);
   const { addToBasket, isItemOnBasket } = useBasket(id);
-  useScrollTop();
-  useDocumentTitle(`View ${product?.name || 'Item'}`);
+  useScrollTop(); 
+
+  //useDocumentTitle(`Ver ${product?.name || 'Item'}`);
 
   const [selectedImage, setSelectedImage] = useState(product?.image || '');
   const [selectedSize, setSelectedSize] = useState('');
@@ -56,7 +58,7 @@ const ViewProduct = () => {
     <main className="content">
       {isLoading && (
         <div className="loader">
-          <h4>Loading Product...</h4>
+          <h4>Carregando Produto...</h4>
           <br />
           <LoadingOutlined style={{ fontSize: '3rem' }} />
         </div>
