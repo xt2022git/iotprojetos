@@ -3,7 +3,14 @@
     "airbnb",
     "firestore",
     "fullname",
+    "googlefonts",
+    "gstatic",
     "iotprojetos",
-    "predeploy"
+    "persistor",
+    "precache",
+    "precaching",
+    "predeploy",
+    "Tajawal",
+    "webfontloader"
   ]
 }

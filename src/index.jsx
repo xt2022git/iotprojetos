@@ -19,7 +19,7 @@ WebFont.load({
 const { store, persistor } = configureStore();
 const root = document.getElementById('app');
 
-// Render the preloader on initial load
+// Renderiza o pré-carregador no carregamento inicial
 render(<Preloader />, root);
 
 firebase.auth.onAuthStateChanged((user) => {
@@ -28,16 +28,16 @@ firebase.auth.onAuthStateChanged((user) => {
   } else {
     store.dispatch(onAuthStateFail('Failed to authenticate'));
   }
-  // then render the app after checking the auth state
+  // Então renderiza o aplicativo após verificar o estado de autenticação
   render(<App store={store} persistor={persistor} />, root);
 });
 
 if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').then((registration) => {
-      console.log('SW registered: ', registration);
+      console.log('SW Registrado: ', registration);
     }).catch((registrationError) => {
-      console.log('SW registration failed: ', registrationError);
+      console.log('SW Registração falhou: ', registrationError);
     });
   });
 }
