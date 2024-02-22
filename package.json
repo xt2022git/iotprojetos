@@ -1,8 +1,8 @@
 {
-  "name": "ecommerce-react",
+  "name": "iotprojetos",
   "version": "1.2.0",
   "main": "index.js",
-  "author": "Julius Guevarra",
+  "author": "Williams Dantas",
   "keywords": [
     "react-webpack",
     "boilerplate",
