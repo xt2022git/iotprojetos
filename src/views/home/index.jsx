@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 
 const Home = () => {
-  useDocumentTitle('Salinaka | Home');
+  useDocumentTitle('IotProjetos | Home');
   useScrollTop();
 
   const {
@@ -33,17 +33,17 @@ const Home = () => {
         <div className="banner">
           <div className="banner-desc">
             <h1 className="text-thin">
-              <strong>See</strong>
-              &nbsp;everything with&nbsp;
-              <strong>Clarity</strong>
+              <strong>Esp8266</strong>
+              &nbsp;controlando Iot&nbsp;
+              <strong>Universal</strong>
             </h1>
             <p>
-              Comprar óculos deve deixar você feliz e bonito, com dinheiro no bolso.
-              Óculos, óculos de sol e lentes de contato – nós protegemos seus olhos.
+            Sabendo de todas essas funcionalidades dessas placas, nós aqui da <strong>Iot Projetos</strong> reunimos 
+            vários projetos com  <strong>Esp32</strong> e com <strong>NodeMCU</strong>disponíveis aqui para que você conheça as mais.
             </p>
             <br />
             <Link to={SHOP} className="button">
-              Shop Now &nbsp;
+              Peça agora&nbsp;
               <ArrowRightOutlined />
             </Link>
           </div>
@@ -51,8 +51,8 @@ const Home = () => {
         </div>
         <div className="display">
           <div className="display-header">
-            <h1>Featured Products</h1>
-            <Link to={FEATURED_PRODUCTS}>See All</Link>
+            <h1>Produtos em destaque</h1>
+            <Link to={FEATURED_PRODUCTS}>Veja tudo</Link>
           </div>
           {(errorFeatured && !isLoadingFeatured) ? (
             <MessageDisplay
@@ -69,8 +69,8 @@ const Home = () => {
         </div>
         <div className="display">
           <div className="display-header">
-            <h1>Recommended Products</h1>
-            <Link to={RECOMMENDED_PRODUCTS}>See All</Link>
+            <h1>Produtos recomendados</h1>
+            <Link to={RECOMMENDED_PRODUCTS}>Veja tudo</Link>
           </div>
           {(errorRecommended && !isLoadingRecommended) ? (
             <MessageDisplay
