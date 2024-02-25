@@ -11,9 +11,9 @@ const SocialLogin = ({ isLoading }) => {
     dispatch(signInWithGoogle());
   };
 
-  const onSignInWithFacebook = () => {
+  /*const onSignInWithFacebook = () => {
     dispatch(signInWithFacebook());
-  };
+  };*/
 
   const onSignInWithGithub = () => {
     dispatch(signInWithGithub());
@@ -25,12 +25,12 @@ const SocialLogin = ({ isLoading }) => {
     <button
         className="button auth-provider-button provider-facebook"
         disabled={isLoading}
-        onClick={onSignInWithFacebook}
+        //onClick={onSignInWithFacebook}
         type="button"
       >
         {/* <i className="fab fa-facebook" /> */}
         <FacebookOutlined />
-        Entre com Facebook
+        Em breve Facebook
       </button>
       
       <button
