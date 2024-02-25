@@ -47,20 +47,20 @@ const CreditPayment = () => {
 
   return (
     <>
-      <h3 className="text-center">Payment</h3>
+      <h3 className="text-center">Pagamento</h3>
       <br />
-      <span className="d-block padding-s">Payment Option</span>
+      <span className="d-block padding-s">Opção de pagamento</span>
       <div
         ref={containerRef}
         className={`checkout-fieldset-collapse ${values.type === 'credit' ? 'is-selected-payment' : ''}`}
       >
-        {/* ---- CHECKBOX TOGGLER ------ */}
+        {/* ---- ALTERNATOR DE CAIXA DE VERIFICAÇÃO------ */}
         <div className="checkout-field margin-0">
           <div className="checkout-checkbox-field" ref={checkboxContainerRef}>
             <input
               checked={values.type === 'credit'}
               id="modeCredit"
-              name="type" // the field name in formik I used is type
+              name="type" // o nome do campo no formik que usei é type
               onChange={onCreditModeChange}
               type="radio"
             />
@@ -71,7 +71,7 @@ const CreditPayment = () => {
               <div className="d-flex-grow-1 margin-left-s">
                 <h4 className="margin-0">Credit Card</h4>
                 <span className="text-subtle d-block margin-top-s">
-                  Pay with Visa, Master Card and other debit or credit card
+                  Pague com Visa, Master Card e outros cartões de débito ou crédito
                 </span>
               </div>
               <div className="d-flex">
@@ -98,8 +98,8 @@ const CreditPayment = () => {
                 <Field
                   name="name"
                   type="text"
-                  label="* Name on Card"
-                  placeholder="Jane Doe"
+                  label="* Nome no cartão"
+                  placeholder="David river"
                   component={CustomInput}
                   style={{ textTransform: 'capitalize' }}
                   inputRef={cardInputRef}
@@ -111,8 +111,8 @@ const CreditPayment = () => {
                   type="text"
                   maxLength={19}
                   onKeyDown={handleOnlyNumberInput}
-                  label="* Card Number"
-                  placeholder="Enter your card number"
+                  label="* Número do cartão"
+                  placeholder="Digite o número do seu cartão"
                   component={CustomInput}
                 />
               </div>
@@ -122,8 +122,8 @@ const CreditPayment = () => {
                 <Field
                   name="expiry"
                   type="date"
-                  label="* Expiry Date"
-                  placeholder="Enter your expiry date"
+                  label="* Data de validade"
+                  placeholder="Insira sua data de validade"
                   component={CustomInput}
                 />
               </div>

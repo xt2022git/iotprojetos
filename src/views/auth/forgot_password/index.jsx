@@ -16,7 +16,7 @@ const ForgotPassword = () => {
   const [field, setField] = useState({});
 
   useScrollTop();
-  useDocumentTitle('Forgot Password | Salinaka');
+  useDocumentTitle('Esqueci a senha | Iot Projetos');
   useEffect(() => {
     if (didMount) {
       setForgotPWStatus(authStatus);
@@ -41,8 +41,8 @@ const ForgotPassword = () => {
           {authStatus.message}
         </h5>
       )}
-      <h2>Forgot Your Password?</h2>
-      <p>Enter your email address and we will send you a password reset email.</p>
+      <h2>Esqueceu sua senha?</h2>
+      <p>Digite seu endereço de e-mail e lhe enviaremos um e-mail de redefinição de senha.</p>
       <br />
       <input
         field="email"
@@ -51,7 +51,7 @@ const ForgotPassword = () => {
         label="* Email"
         maxLength={40}
         onChange={onEmailChange}
-        placeholder="Enter your email"
+        placeholder="Digite seu e-mail"
         readOnly={isSendingForgotPWRequest || authStatus?.success}
         type="email"
         style={{ width: '100%' }}
@@ -66,7 +66,7 @@ const ForgotPassword = () => {
       >
         {isSendingForgotPWRequest ? <LoadingOutlined /> : <CheckOutlined />}
         &nbsp;
-        {isSendingForgotPWRequest ? 'Sending Password Reset Email' : 'Send Password Reset Email'}
+        {isSendingForgotPWRequest ? 'Enviando e-mail de redefinição de senha' : 'Enviar e-mail de redefinição de senha'}
       </button>
     </div>
   );

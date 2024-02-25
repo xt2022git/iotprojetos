@@ -11,27 +11,27 @@ const UserOrdersTab = lazy(() => import('../components/UserOrdersTab'));
 const Loader = () => (
   <div className="loader" style={{ minHeight: '80vh' }}>
     <LoadingOutlined />
-    <h6>Loading ... </h6>
+    <h6>Aguarde... </h6>
   </div>
 );
 
 const UserAccount = () => {
   useScrollTop();
-  useDocumentTitle('My Account | Salinaka');
+  useDocumentTitle('Minha Conta | Iot Projetos');
 
   return (
     <UserTab>
-      <div index={0} label="Account">
+      <div index={0} label="Conta">
         <Suspense fallback={<Loader />}>
           <UserAccountTab />
         </Suspense>
       </div>
-      <div index={1} label="My Wish List">
+      <div index={1} label="Minha Lista">
         <Suspense fallback={<Loader />}>
           <UserWishListTab />
         </Suspense>
       </div>
-      <div index={2} label="My Orders">
+      <div index={2} label="Meus Pedidos">
         <Suspense fallback={<Loader />}>
           <UserOrdersTab />
         </Suspense>

@@ -14,12 +14,12 @@ import EditForm from './EditForm';
 
 const FormSchema = Yup.object().shape({
   fullname: Yup.string()
-    .min(4, 'Full name should be at least 4 characters.')
-    .max(60, 'Full name should be only be 4 characters long.')
-    .required('Full name is required'),
+    .min(4, 'O nome completo deve ter pelo menos 4 caracteres.')
+    .max(60, 'O nome completo deve ter apenas 4 caracteres.')
+    .required('O nome completo é obrigatório'),
   email: Yup.string()
-    .email('Email is not valid.')
-    .required('Email is required.'),
+    .email('E-mail não é válido.')
+    .required('O e-mail é obrigatório.'),
   address: Yup.string(),
   mobile: Yup.object()
     .shape({
@@ -31,7 +31,7 @@ const FormSchema = Yup.object().shape({
 });
 
 const EditProfile = () => {
-  useDocumentTitle('Edit Account | Salinaka');
+  useDocumentTitle('Editar conta | Iot Projetos');
   useScrollTop();
 
   const modal = useModal();
@@ -85,7 +85,7 @@ const EditProfile = () => {
   };
 
   const onSubmitUpdate = (form) => {
-    // check if data has changed
+   // verifica se os dados foram alterados
     const fieldsChanged = Object.keys(form).some((key) => profile[key] !== form[key]);
 
     if (fieldsChanged || (Boolean(imageFile.banner.file || imageFile.avatar.file))) {
@@ -100,7 +100,7 @@ const EditProfile = () => {
   return (
     <Boundary>
       <div className="edit-user">
-        <h3 className="text-center">Edit Account Details</h3>
+        <h3 className="text-center">Editar detalhes da conta</h3>
         <Formik
           initialValues={initFormikValues}
           validateOnChange

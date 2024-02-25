@@ -14,10 +14,10 @@ import * as Yup from 'yup';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Email is not valid.')
-    .required('Email is required.'),
+    .email('E-mail não é válido.')
+    .required('O e-mail é obrigatório.'),
   password: Yup.string()
-    .required('Password is required.')
+    .required('A senha é obrigatória.')
 });
 
 const SignIn = ({ history }) => {
@@ -29,7 +29,7 @@ const SignIn = ({ history }) => {
   const dispatch = useDispatch();
 
   useScrollTop();
-  useDocumentTitle('Sign In | Salinaka');
+  useDocumentTitle('Entrar | Iot Projetos');
 
   useEffect(() => () => {
     dispatch(setAuthStatus(null));
@@ -65,7 +65,7 @@ const SignIn = ({ history }) => {
           )}
           <div className={`auth ${authStatus?.message && (!authStatus?.success && 'input-error')}`}>
             <div className="auth-main">
-              <h3>Sign in to Salinaka</h3>
+              <h3>Faça login no Iot Projetos</h3>
               <br />
               <div className="auth-wrapper">
                 <Formik
@@ -85,7 +85,7 @@ const SignIn = ({ history }) => {
                           name="email"
                           type="email"
                           label="Email"
-                          placeholder="test@example.com"
+                          placeholder="teste@example.com"
                           component={CustomInput}
                         />
                       </div>
@@ -94,8 +94,8 @@ const SignIn = ({ history }) => {
                           disabled={isAuthenticating}
                           name="password"
                           type="password"
-                          label="Password"
-                          placeholder="Your Password"
+                          label="Senha"
+                          placeholder="Sua senha"
                           component={CustomInput}
                         />
                       </div>
@@ -106,14 +106,14 @@ const SignIn = ({ history }) => {
                           style={{ textDecoration: 'underline' }}
                           to={FORGOT_PASSWORD}
                         >
-                          <span>Forgot password?</span>
+                          <span>Esqueceu sua senha?</span>
                         </Link>
                         <button
                           className="button auth-button"
                           disabled={isAuthenticating}
                           type="submit"
                         >
-                          {isAuthenticating ? 'Signing In' : 'Sign In'}
+                          {isAuthenticating ? 'Entrando' : 'Entrar'}
                           &nbsp;
                           {isAuthenticating ? <LoadingOutlined /> : <ArrowRightOutlined />}
                         </button>
@@ -124,13 +124,13 @@ const SignIn = ({ history }) => {
               </div>
             </div>
             <div className="auth-divider">
-              <h6>OR</h6>
+              <h6>OU</h6>
             </div>
             <SocialLogin isLoading={isAuthenticating} />
           </div>
           <div className="auth-message">
             <span className="auth-info">
-              <strong>Don&apos;t have an account?</strong>
+              <strong>Não tem uma conta?</strong>
             </span>
             <button
               className="button button-small button-border button-border-gray button-icon"
@@ -138,7 +138,7 @@ const SignIn = ({ history }) => {
               onClick={onSignUp}
               type="button"
             >
-              Sign Up
+              Inscrever-se
             </button>
           </div>
         </>

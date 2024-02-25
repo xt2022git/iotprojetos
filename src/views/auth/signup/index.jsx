@@ -13,15 +13,15 @@ import * as Yup from 'yup';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Email is not valid.')
-    .required('Email is required.'),
+    .email('E-mail não é válido.')
+    .required('O e-mail é obrigatório.'),
   password: Yup.string()
-    .required('Password is required.')
-    .min(8, 'Password length should be at least 8 characters.')
-    .matches(/[A-Z\W]/g, 'Password should contain at least 1 uppercase letter.'),
+    .required('Senha requerida.')
+    .min(8, 'O comprimento da senha deve ter pelo menos 8 caracteres.')
+    .matches(/[A-Z\W]/g, 'A senha deve conter pelo menos 1 letra maiúscula.'),
   fullname: Yup.string()
-    .required('Full name is required.')
-    .min(4, 'Name should be at least 4 characters.')
+    .required('O nome completo é obrigatório.')
+    .min(4, 'O nome deve ter pelo menos 4 caracteres.')
 });
 
 const SignUp = ({ history }) => {
@@ -32,7 +32,7 @@ const SignUp = ({ history }) => {
   const dispatch = useDispatch();
 
   useScrollTop();
-  useDocumentTitle('Sign Up | Salinaka');
+  useDocumentTitle('Cadastre-se | Iot Projetos');
 
   useEffect(() => () => {
     dispatch(setAuthStatus(null));
@@ -68,7 +68,7 @@ const SignUp = ({ history }) => {
           )}
           <div className={`auth ${authStatus?.message && (!authStatus?.success && 'input-error')}`}>
             <div className="auth-main">
-              <h3>Sign up to Salinaka</h3>
+              <h3>Cadastre-se na Iot Projetos</h3>
               <Formik
                 initialValues={{
                   fullname: '',
@@ -86,8 +86,8 @@ const SignUp = ({ history }) => {
                         disabled={isAuthenticating}
                         name="fullname"
                         type="text"
-                        label="* Full Name"
-                        placeholder="John Doe"
+                        label="* Nome completo"
+                        placeholder="David Brown"
                         style={{ textTransform: 'capitalize' }}
                         component={CustomInput}
                       />
@@ -97,8 +97,8 @@ const SignUp = ({ history }) => {
                         disabled={isAuthenticating}
                         name="email"
                         type="email"
-                        label="* Email"
-                        placeholder="test@example.com"
+                        label="* Seu Email"
+                        placeholder="teste@example.com"
                         component={CustomInput}
                       />
                     </div>
@@ -107,8 +107,8 @@ const SignUp = ({ history }) => {
                         disabled={isAuthenticating}
                         name="password"
                         type="password"
-                        label="* Password"
-                        placeholder="Your Password"
+                        label="* Sua Senha"
+                        placeholder="Digite a senha"
                         component={CustomInput}
                       />
                     </div>
@@ -119,7 +119,7 @@ const SignUp = ({ history }) => {
                         disabled={isAuthenticating}
                         type="submit"
                       >
-                        {isAuthenticating ? 'Signing Up' : 'Sign Up'}
+                        {isAuthenticating ? 'Inscrevendo' : 'Inscrever-se'}
                         &nbsp;
                         {isAuthenticating ? <LoadingOutlined /> : <ArrowRightOutlined />}
                       </button>
@@ -129,13 +129,13 @@ const SignUp = ({ history }) => {
               </Formik>
             </div>
             <div className="auth-divider">
-              <h6>OR</h6>
+              <h6>OU</h6>
             </div>
             <SocialLogin isLoading={isAuthenticating} />
           </div>
           <div className="auth-message">
             <span className="auth-info">
-              <strong>Already have an account?</strong>
+              <strong>Já tem uma conta?</strong>
             </span>
             <button
               className="button button-small button-border button-border-gray"
@@ -143,7 +143,7 @@ const SignUp = ({ history }) => {
               onClick={onClickSignIn}
               type="button"
             >
-              Sign In
+              Entrar
             </button>
           </div>
         </>

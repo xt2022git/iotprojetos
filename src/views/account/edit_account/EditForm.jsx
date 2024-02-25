@@ -16,8 +16,8 @@ const EditForm = ({ isLoading, authProvider }) => {
         disabled={isLoading}
         name="fullname"
         type="text"
-        label="* Full Name"
-        placeholder="Enter your full name"
+        label="* Nome completo"
+        placeholder="Digite seu nome completo"
         component={CustomInput}
         style={{ textTransform: 'capitalize' }}
       />
@@ -25,16 +25,16 @@ const EditForm = ({ isLoading, authProvider }) => {
         disabled={authProvider !== 'password' || isLoading}
         name="email"
         type="email"
-        label="* Email Address"
-        placeholder="test@example.com"
+        label="* Endereço de email"
+        placeholder="teste@example.com"
         component={CustomInput}
       />
       <Field
         disabled={isLoading}
         name="address"
         type="text"
-        label="Address (Will be used for checkout)"
-        placeholder="#245 Brgy. Maligalig, Arayat Pampanga, Philippines"
+        label="Endereço (será usado para finalização do Pedido)"
+        placeholder="R: João AlvaresSoares 1540, Campo Belo - SP"
         component={CustomInput}
         style={{ textTransform: 'capitalize' }}
       />
@@ -42,7 +42,7 @@ const EditForm = ({ isLoading, authProvider }) => {
         defaultValue={values.mobile}
         name="mobile"
         disabled={isLoading}
-        label="Mobile Number (Will be used for checkout)"
+        label="Número de celular (será usado para finalizar do Pedido)"
       />
       <br />
       <div className="edit-user-action">
@@ -54,7 +54,7 @@ const EditForm = ({ isLoading, authProvider }) => {
         >
           <ArrowLeftOutlined />
           &nbsp;
-          Back to Profile
+          Voltar ao perfil
         </button>
         <button
           className="button w-100-mobile"
@@ -64,7 +64,7 @@ const EditForm = ({ isLoading, authProvider }) => {
         >
           {isLoading ? <LoadingOutlined /> : <CheckOutlined />}
                     &nbsp;
-          {isLoading ? 'Updating Profile' : 'Update Profile'}
+          {isLoading ? 'Atualizando perfil' : 'Atualizar perfil'}
         </button>
       </div>
     </div>

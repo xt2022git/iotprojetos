@@ -11,7 +11,7 @@ import { StepTracker } from '../components';
 import withCheckout from '../hoc/withCheckout';
 
 const OrderSummary = ({ basket, subtotal }) => {
-  useDocumentTitle('Check Out Step 1 | Salinaka');
+  useDocumentTitle('Confira a Etapa 1 | Iot Projetos');
   useScrollTop();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -22,8 +22,8 @@ const OrderSummary = ({ basket, subtotal }) => {
     <div className="checkout">
       <StepTracker current={1} />
       <div className="checkout-step-1">
-        <h3 className="text-center">Order Summary</h3>
-        <span className="d-block text-center">Review items in your basket.</span>
+        <h3 className="text-center">Resumo do pedido</h3>
+        <span className="d-block text-center">Revise os itens em sua cesta.</span>
         <br />
         <div className="checkout-items">
           {basket.map((product) => (
@@ -49,14 +49,14 @@ const OrderSummary = ({ basket, subtotal }) => {
           >
             <ShopOutlined />
             &nbsp;
-            Continue Shopping
+            Continue na Loja
           </button>
           <button
             className="button"
             onClick={onClickNext}
             type="submit"
           >
-            Next Step
+            Avançar
             &nbsp;
             <ArrowRightOutlined />
           </button>

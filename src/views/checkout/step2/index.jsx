@@ -18,28 +18,28 @@ import ShippingTotal from './ShippingTotal';
 
 const FormSchema = Yup.object().shape({
   fullname: Yup.string()
-    .required('Full name is required.')
-    .min(2, 'Full name must be at least 2 characters long.')
-    .max(60, 'Full name must only be less than 60 characters.'),
+    .required('O nome completo é obrigatório.')
+    .min(2, 'O nome completo deve ter pelo menos 2 caracteres.')
+    .max(60, 'O nome completo deve ter menos de 60 caracteres.'),
   email: Yup.string()
-    .email('Email is not valid.')
-    .required('Email is required.'),
+    .email('E-mail não é válido.')
+    .required('O e-mail é obrigatório.'),
   address: Yup.string()
-    .required('Shipping address is required.'),
+    .required('O endereço de entrega é obrigatório.'),
   mobile: Yup.object()
     .shape({
       country: Yup.string(),
       countryCode: Yup.string(),
-      dialCode: Yup.string().required('Mobile number is required'),
-      value: Yup.string().required('Mobile number is required')
+      dialCode: Yup.string().required('O número do celular é obrigatório'),
+      value: Yup.string().required('O número do celular é obrigatório')
     })
-    .required('Mobile number is required.'),
+    .required('O número do celular é obrigatório'),
   isInternational: Yup.boolean(),
   isDone: Yup.boolean()
 });
 
 const ShippingDetails = ({ profile, shipping, subtotal }) => {
-  useDocumentTitle('Check Out Step 2 | Salinaka');
+  useDocumentTitle('Confira a Etapa 2 | Iot Projetos');
   useScrollTop();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -70,7 +70,7 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
       <div className="checkout">
         <StepTracker current={2} />
         <div className="checkout-step-2">
-          <h3 className="text-center">Shipping Details</h3>
+          <h3 className="text-center">Detalhes de envio</h3>
           <Formik
             initialValues={initFormikValues}
             validateOnChange
@@ -84,7 +84,7 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
                 {/*  ---- TOTAL --------- */}
                 <ShippingTotal subtotal={subtotal} />
                 <br />
-                {/*  ----- NEXT/PREV BUTTONS --------- */}
+                {/*  ----- BOTÕES PRÓXIMO/ANTERIOR --------- */}
                 <div className="checkout-shipping-action">
                   <button
                     className="button button-muted"
@@ -93,13 +93,13 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
                   >
                     <ArrowLeftOutlined />
                     &nbsp;
-                    Go Back
+                    Voltar
                   </button>
                   <button
                     className="button button-icon"
                     type="submit"
                   >
-                    Next Step
+                    Avançar
                     &nbsp;
                     <ArrowRightOutlined />
                   </button>

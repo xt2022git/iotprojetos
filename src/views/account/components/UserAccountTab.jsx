@@ -33,34 +33,34 @@ const UserProfile = (props) => {
             onClick={() => props.history.push(ACCOUNT_EDIT)}
             type="button"
           >
-            Edit Account
+            Editar conta
           </button>
         </div>
         <div className="user-profile-details">
           <h2 className="user-profile-name">{profile.fullname}</h2>
-          <span>Email</span>
+          <span>Seu Email:</span>
           <br />
           <h5>{profile.email}</h5>
-          <span>Address</span>
+          <span>Endereço:</span>
           <br />
           {profile.address ? (
             <h5>{profile.address}</h5>
           ) : (
-            <h5 className="text-subtle text-italic">Address not set</h5>
+            <h5 className="text-subtle text-italic">Endereço não definido</h5>
           )}
-          <span>Mobile</span>
+          <span>Celular:</span>
           <br />
           {profile.mobile ? (
             <h5>{profile.mobile.value}</h5>
           ) : (
-            <h5 className="text-subtle text-italic">Mobile not set</h5>
+            <h5 className="text-subtle text-italic">Celular não configurado</h5>
           )}
-          <span>Date Joined</span>
+          <span>Data de adesão:</span>
           <br />
           {profile.dateJoined ? (
             <h5>{displayDate(profile.dateJoined)}</h5>
           ) : (
-            <h5 className="text-subtle text-italic">Not available</h5>
+            <h5 className="text-subtle text-italic">Não disponível</h5>
           )}
         </div>
       </div>

@@ -41,7 +41,7 @@ const UserNav = () => {
 
   return isAuthenticating ? (
     <div className="user-nav">
-      <span>Signing Out</span>
+      <span>Saindo</span>
       &nbsp;
       <LoadingOutlined />
     </div>
@@ -69,7 +69,7 @@ const UserNav = () => {
             to={ACCOUNT}
             className="user-nav-sub-link"
           >
-            View Account
+            Visualizar Conta
             <UserOutlined />
           </Link>
         )}
@@ -78,7 +78,7 @@ const UserNav = () => {
           onClick={() => dispatch(signOut())}
           role="presentation"
         >
-          Sign Out
+          Sair
           <LogoutOutlined />
         </h6>
       </div>

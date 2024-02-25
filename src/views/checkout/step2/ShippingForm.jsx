@@ -13,8 +13,8 @@ const ShippingForm = () => {
             <Field
               name="fullname"
               type="text"
-              label="* Full Name"
-              placeholder="Enter your full name"
+              label="* Nome completo"
+              placeholder="Escreva seu nome completo"
               component={CustomInput}
               style={{ textTransform: 'capitalize' }}
             />
@@ -23,8 +23,8 @@ const ShippingForm = () => {
             <Field
               name="email"
               type="email"
-              label="* Email Address"
-              placeholder="Enter your email address"
+              label="* Endereço de email"
+              placeholder="Insira o seu endereço de email"
               component={CustomInput}
             />
           </div>
@@ -34,8 +34,8 @@ const ShippingForm = () => {
             <Field
               name="address"
               type="text"
-              label="* Shipping Address"
-              placeholder="Enter full shipping address"
+              label="* Endereço para envio"
+              placeholder="Insira o endereço de entrega completo"
               component={CustomInput}
             />
           </div>
@@ -55,7 +55,7 @@ const ShippingForm = () => {
                     className="label-input"
                     htmlFor={field.name}
                   >
-                    Shipping Option
+                  Opção de envio
                   </label>
                 )}
                 <div className="checkout-checkbox-field">
@@ -70,10 +70,10 @@ const ShippingForm = () => {
                   />
                   <label className="d-flex w-100" htmlFor={field.name}>
                     <h5 className="d-flex-grow-1 margin-0">
-                      &nbsp; International Shipping &nbsp;
-                      <span className="text-subtle">7-14 days</span>
+                      &nbsp; Envio internacional &nbsp;
+                      <span className="text-subtle">7-14 dias</span>
                     </h5>
-                    <h4 className="margin-0">$50.00</h4>
+                    <h4 className="margin-0">$55.00</h4>
                   </label>
                 </div>
               </div>

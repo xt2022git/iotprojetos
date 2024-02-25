@@ -14,23 +14,23 @@ import Total from './Total';
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
-    .min(4, 'Name should be at least 4 characters.')
-    .required('Name is required'),
+    .min(4, 'O nome deve ter pelo menos 4 caracteres.')
+    .required('O nome é obrigatório'),
   cardnumber: Yup.string()
-    .min(13, 'Card number should be 13-19 digits long')
-    .max(19, 'Card number should only be 13-19 digits long')
-    .required('Card number is required.'),
+    .min(13, 'O número do cartão deve ter de 13 a 19 dígitos')
+    .max(19, 'O número do cartão deve ter apenas 13 a 19 dígitos')
+    .required('O número do cartão é obrigatório.'),
   expiry: Yup.date()
-    .required('Credit card expiry is required.'),
+    .required('É necessário expirar o cartão de crédito.'),
   ccv: Yup.string()
-    .min(3, 'CCV length should be 3-4 digit')
-    .max(4, 'CCV length should only be 3-4 digit')
-    .required('CCV is required.'),
-  type: Yup.string().required('Please select paymend mode')
+    .min(3, 'O comprimento do CCV deve ter de 3 a 4 dígitos')
+    .max(4, 'O comprimento do CCV deve ter apenas 3-4 dígitos')
+    .required('O CCV é obrigatório.'),
+  type: Yup.string().required('Selecione o modo de pagamento')
 });
 
 const Payment = ({ shipping, payment, subtotal }) => {
-  useDocumentTitle('Check Out Final Step | Salinaka');
+  useDocumentTitle('Confira a etapa final | Iot Projetos');
   useScrollTop();
 
   const initFormikValues = {
@@ -42,7 +42,7 @@ const Payment = ({ shipping, payment, subtotal }) => {
   };
 
   const onConfirm = () => {
-    displayActionMessage('Feature not ready yet :)', 'info');
+    displayActionMessage('Recurso ainda não está pronto: )', 'info');
   };
 
   if (!shipping || !shipping.isDone) {
@@ -57,7 +57,7 @@ const Payment = ({ shipping, payment, subtotal }) => {
         validationSchema={FormSchema}
         validate={(form) => {
           if (form.type === 'paypal') {
-            displayActionMessage('Feature not ready yet :)', 'info');
+            displayActionMessage('Recurso ainda não está pronto: )', 'info');
           }
         }}
         onSubmit={onConfirm}
