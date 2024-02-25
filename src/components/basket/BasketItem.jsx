@@ -31,11 +31,11 @@ const BasketItem = ({ product }) => {
           </Link>
           <div className="basket-item-specs">
             <div>
-              <span className="spec-title">Quantidade</span>
+              <span className="spec-title">Quant</span>
               <h5 className="my-0">{product.quantity}</h5>
             </div>
             <div>
-              <span className="spec-title">tamanho</span>
+              <span className="spec-title">Med</span>
               <h5 className="my-0">
                 {product.selectedSize}
                 {' '}

@@ -22,12 +22,14 @@ const CustomMobileInput = (props) => {
   };
 
   return (
+    
     <div className="input-group">
       {touched && error ? (
         <span className="label-input label-error">{error?.value || error?.dialCode}</span>
       ) : (
         <label className="label-input" htmlFor={field.name}>{label}</label>
       )}
+      <></>
       <PhoneInput
         name={field.name}
         country="ph"
@@ -43,10 +45,10 @@ const CustomMobileInput = (props) => {
     </div>
   );
 };
-
+<></>
 CustomMobileInput.defaultProps = {
-  label: 'Mobile Number',
-  placeholder: '09254461351'
+  label: 'Número Celular ',
+  placeholder: '(00)900000000'
 };
 
 CustomMobileInput.propTypes = {
