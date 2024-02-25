@@ -38,8 +38,8 @@ const Home = () => {
               <strong>Clarity</strong>
             </h1>
             <p>
-              Buying eyewear should leave you happy and good-looking, with money in your pocket.
-              Glasses, sunglasses, and contacts—we’ve got your eyes covered.
+              Comprar óculos deve deixar você feliz e bonito, com dinheiro no bolso.
+              Óculos, óculos de sol e lentes de contato – nós protegemos seus olhos.
             </p>
             <br />
             <Link to={SHOP} className="button">
