@@ -44,7 +44,7 @@ const Navigation = () => {
     if (store.isAuthenticating) e.preventDefault();
   };
 
-  // disable the basket toggle to these pathnames
+  // Desabilita a alternância da cesta para esses nomes de caminho
   const basketDisabledpathnames = [
     ROUTE.CHECKOUT_STEP_1,
     ROUTE.CHECKOUT_STEP_2,
@@ -73,9 +73,9 @@ const Navigation = () => {
       </div>
       <ul className="navigation-menu-main">
         <li><NavLink activeClassName="navigation-menu-active" exact to={ROUTE.HOME}>Home</NavLink></li>
-        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.SHOP}>Shop</NavLink></li>
-        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.FEATURED_PRODUCTS}>Featured</NavLink></li>
-        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.RECOMMENDED_PRODUCTS}>Recommended</NavLink></li>
+        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.SHOP}>Loja</NavLink></li>
+        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.FEATURED_PRODUCTS}>Destaque</NavLink></li>
+        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.RECOMMENDED_PRODUCTS}>Indicados</NavLink></li>
       </ul>
       {(pathname === ROUTE.SHOP || pathname === ROUTE.SEARCH) && (
         <FiltersToggle>
@@ -116,7 +116,7 @@ const Navigation = () => {
                 onClick={onClickLink}
                 to={ROUTE.SIGNUP}
               >
-                Sign Up
+                Inscreva-se
               </Link>
             )}
             {pathname !== ROUTE.SIGNIN && (
@@ -125,7 +125,7 @@ const Navigation = () => {
                 onClick={onClickLink}
                 to={ROUTE.SIGNIN}
               >
-                Sign In
+                Entre
               </Link>
             )}
           </li>
