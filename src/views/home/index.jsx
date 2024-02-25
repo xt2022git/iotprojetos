@@ -34,12 +34,12 @@ const Home = () => {
           <div className="banner-desc">
             <h1 className="text-thin">
               <strong>Esp8266</strong>
-              &nbsp;controlando Iot&nbsp;
-              <strong>Universal</strong>
+              &nbsp;&nbsp;projetando universo&nbsp;
+              <strong>Imaginário</strong>
             </h1>
             <p>
             Sabendo de todas essas funcionalidades dessas placas, nós aqui da <strong>Iot Projetos</strong> reunimos 
-            vários projetos com  <strong>Esp32</strong> e com <strong>NodeMCU</strong>disponíveis aqui para que você conheça as mais.
+            vários projetos com  <strong>Esp32</strong> e com <strong>NodeMCU</strong> disponíveis aqui para que você conheça as mais.
             </p>
             <br />
             <Link to={SHOP} className="button">
