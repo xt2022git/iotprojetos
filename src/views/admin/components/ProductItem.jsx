@@ -23,7 +23,7 @@ const ProductItem = ({ product }) => {
 
   const onConfirmDelete = () => {
     dispatch(removeProduct(product.id));
-    displayActionMessage('Item successfully deleted');
+    displayActionMessage('Item excluído com sucesso');
     productRef.current.classList.remove('item-active');
   };
 
@@ -75,7 +75,7 @@ const ProductItem = ({ product }) => {
               onClick={onClickEdit}
               type="button"
             >
-              Edit
+              Editar
             </button>
             &nbsp;
             <button
@@ -83,16 +83,16 @@ const ProductItem = ({ product }) => {
               onClick={onDeleteProduct}
               type="button"
             >
-              Delete
+              Deletar
             </button>
             <div className="item-action-confirm">
-              <h5>Are you sure you want to delete this?</h5>
+              <h5>Tem certeza de que deseja excluir isto?</h5>
               <button
                 className="button button-small button-border"
                 onClick={onCancelDelete}
                 type="button"
               >
-                No
+                Não
               </button>
               &nbsp;
               <button
@@ -100,7 +100,7 @@ const ProductItem = ({ product }) => {
                 onClick={onConfirmDelete}
                 type="button"
               >
-                Yes
+                Sim
               </button>
             </div>
           </div>

@@ -9,7 +9,7 @@ const ProductForm = lazy(() => import('../components/ProductForm'));
 
 const AddProduct = () => {
   useScrollTop();
-  useDocumentTitle('Add New Product | Salinaka');
+  useDocumentTitle('Adicionar novo produto | Iot Projetos');
   const isLoading = useSelector((state) => state.app.loading);
   const dispatch = useDispatch();
 
@@ -19,10 +19,10 @@ const AddProduct = () => {
 
   return (
     <div className="product-form-container">
-      <h2>Add New Product</h2>
+      <h2>Adicionar novo produto</h2>
       <Suspense fallback={(
         <div className="loader" style={{ minHeight: '80vh' }}>
-          <h6>Loading ... </h6>
+          <h6>Aguarde...</h6>
           <br />
           <LoadingOutlined />
         </div>

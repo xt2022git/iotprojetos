@@ -12,41 +12,41 @@ import PropType from 'prop-types';
 import React from 'react';
 import * as Yup from 'yup';
 
-// Default brand names that I used. You can use what you want
+// Nomes de marcas padrão que usei. Você pode usar o que quiser
 const brandOptions = [
-  { value: 'Salt Maalat', label: 'Salt Maalat' },
-  { value: 'Betsin Maalat', label: 'Betsin Maalat' },
-  { value: 'Sexbomb', label: 'Sexbomb' },
-  { value: 'Black Kibal', label: 'Black Kibal' }
+  { value: 'Dell', label: 'Dell' },
+  { value: 'Lenovo', label: 'Lenovo' },
+  { value: 'Hewlett-Packard', label: 'Hewlett-Packard' },
+  { value: 'Positivo', label: 'Positivo' }
 ];
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
-    .required('Product name is required.')
-    .max(60, 'Product name must only be less than 60 characters.'),
+    .required('O nome do produto é obrigatório.')
+    .max(60, 'O nome do produto deve ter menos de 60 caracteres.'),
   brand: Yup.string()
-    .required('Brand name is required.'),
+    .required('O nome da marca é obrigatório.'),
   price: Yup.number()
-    .positive('Price is invalid.')
-    .integer('Price should be an integer.')
-    .required('Price is required.'),
+    .positive('O preço é inválido.')
+    .integer('O preço deve ser um número inteiro.')
+    .required('O preço é obrigatório.'),
   description: Yup.string()
-    .required('Description is required.'),
+    .required('A descrição é obrigatória.'),
   maxQuantity: Yup.number()
-    .positive('Max quantity is invalid.')
-    .integer('Max quantity should be an integer.')
-    .required('Max quantity is required.'),
+    .positive('A quantidade máxima é inválida.')
+    .integer('A quantidade máxima deve ser um número inteiro.')
+    .required('A quantidade máxima é necessária.'),
   keywords: Yup.array()
     .of(Yup.string())
-    .min(1, 'Please enter at least 1 keyword for this product.'),
+    .min(1, 'Insira pelo menos uma palavra-chave para este produto.'),
   sizes: Yup.array()
     .of(Yup.number())
-    .min(1, 'Please enter a size for this product.'),
+    .min(1, 'Por favor insira um tamanho para este produto.'),
   isFeatured: Yup.boolean(),
   isRecommended: Yup.boolean(),
   availableColors: Yup.array()
     .of(Yup.string().required())
-    .min(1, 'Please add a default color for this product.')
+    .min(1, 'Adicione uma cor padrão para este produto.')
 });
 
 const ProductForm = ({ product, onSubmit, isLoading }) => {
@@ -75,8 +75,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
       onSubmit({
         ...form,
         quantity: 1,
-        // due to firebase function billing policy, let's add lowercase version
-        // of name here instead in firebase functions
+        // devido à política de faturamento da função Firebase, vamos adicionar a versão em minúsculas
+        // do nome aqui nas funções do Firebase
         name_lower: form.name.toLowerCase(),
         dateAdded: new Date().getTime(),
         image: imageFile?.image?.file || product.imageUrl,
@@ -84,7 +84,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
       });
     } else {
       // eslint-disable-next-line no-alert
-      alert('Product thumbnail image is required.');
+      alert('A imagem em miniatura do produto é obrigatória.');
     }
   };
 
@@ -105,8 +105,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     disabled={isLoading}
                     name="name"
                     type="text"
-                    label="* Product Name"
-                    placeholder="Gago"
+                    label="* Nome do Produto"
+                    placeholder="Digite aqui o nome..."
                     style={{ textTransform: 'capitalize' }}
                     component={CustomInput}
                   />
@@ -119,8 +119,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     iid="brand"
                     options={brandOptions}
                     disabled={isLoading}
-                    placeholder="Select/Create Brand"
-                    label="* Brand"
+                    placeholder="Selecionar/Criar Marca"
+                    label="* Marcas"
                   />
                 </div>
               </div>
@@ -130,7 +130,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                   name="description"
                   id="description"
                   rows={3}
-                  label="* Product Description"
+                  label="* Descrição do produto"
+                  placeholder="Descreva aqui algumas palavras..."
                   component={CustomTextarea}
                 />
               </div>
@@ -141,7 +142,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     name="price"
                     id="price"
                     type="number"
-                    label="* Price"
+                    label="* Preço"
                     component={CustomInput}
                   />
                 </div>
@@ -152,7 +153,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     name="maxQuantity"
                     type="number"
                     id="maxQuantity"
-                    label="* Max Quantity"
+                    label="* Quant Max"
                     component={CustomInput}
                   />
                 </div>
@@ -165,7 +166,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     iid="keywords"
                     isMulti
                     disabled={isLoading}
-                    placeholder="Create/Select Keywords"
+                    placeholder="Criar/Selecionar palavras-chave"
                     label="* Keywords"
                   />
                 </div>
@@ -178,7 +179,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     type="number"
                     isMulti
                     disabled={isLoading}
-                    placeholder="Create/Select Sizes"
+                    placeholder="Criar/selecionar tam/medidas"
                     label="* Sizes (Millimeter)"
                   />
                 </div>
@@ -191,7 +192,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                 />
               </div>
               <div className="product-form-field">
-                <span className="d-block padding-s">Image Collection</span>
+                <span className="d-block padding-s">Coleção de imagens</span>
                 {!isFileLoading && (
                   <label htmlFor="product-input-file-collection">
                     <input
@@ -203,7 +204,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                       readOnly={isLoading}
                       type="file"
                     />
-                    Choose Images
+                    Escolha imagens
                   </label>
                 )}
               </div>
@@ -222,7 +223,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                         <button
                           className="product-form-delete-image"
                           onClick={() => removeImage({ id: image.id, name: 'imageCollection' })}
-                          title="Delete Image"
+                          title="Deletar Imagem"
                           type="button"
                         >
                           <i className="fa fa-times-circle" />
@@ -244,7 +245,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                   />
                   <label htmlFor="featured">
                     <h5 className="d-flex-grow-1 margin-0">
-                      &nbsp; Add to Featured &nbsp;
+                      &nbsp; Adicionar em destaque &nbsp;
                     </h5>
                   </label>
                 </div>
@@ -258,7 +259,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                   />
                   <label htmlFor="recommended">
                     <h5 className="d-flex-grow-1 margin-0">
-                      &nbsp; Add to Recommended &nbsp;
+                      &nbsp; Adicionar em indicados &nbsp;
                     </h5>
                   </label>
                 </div>
@@ -274,14 +275,14 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                 >
                   {isLoading ? <LoadingOutlined /> : <CheckOutlined />}
                   &nbsp;
-                  {isLoading ? 'Saving Product' : 'Save Product'}
+                  {isLoading ? 'Salvando Produto' : 'Salvar produto'}
                 </button>
               </div>
             </div>
-            {/* ----THUBMNAIL ---- */}
+            {/* ----MINIATURA ---- */}
             <div className="product-form-file">
               <div className="product-form-field">
-                <span className="d-block padding-s">* Thumbnail</span>
+                <span className="d-block padding-s">* Miniatura</span>
                 {!isFileLoading && (
                   <label htmlFor="product-input-file">
                     <input
@@ -292,7 +293,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                       readOnly={isLoading}
                       type="file"
                     />
-                    Choose Image
+                    Escolher uma imagem
                   </label>
                 )}
               </div>
