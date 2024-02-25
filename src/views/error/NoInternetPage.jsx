@@ -6,15 +6,15 @@ const NoInternet = () => {
 
   return (
     <div className="page-not-found">
-      <h1>:( No Internet Connection.</h1>
-      <p>Please check you network connectivity and try again.</p>
+      <h1>:( Sem conexão com a Internet.</h1>
+      <p>Verifique sua conectividade de rede e tente novamente.</p>
       <br />
       <button
         className="button"
         onClick={() => window.location.reload(true)}
         type="button"
       >
-        Try Again
+        Tente novamente
       </button>
     </div>
 

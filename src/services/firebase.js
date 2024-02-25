@@ -48,7 +48,7 @@ class Firebase {
           user
             .updatePassword(newPassword)
             .then(() => {
-              resolve("Password updated successfully!");
+              resolve("Senha atualizada com sucesso!");
             })
             .catch((error) => reject(error));
         })
@@ -73,7 +73,7 @@ class Firebase {
           user
             .updateEmail(newEmail)
             .then(() => {
-              resolve("Email Successfully updated");
+              resolve("E-mail atualizado com sucesso");
             })
             .catch((error) => reject(error));
         })
@@ -89,7 +89,7 @@ class Firebase {
         if (user) {
           resolve(user);
         } else {
-          reject(new Error("Auth State Changed failed"));
+          reject(new Error("Estado de autenticação alterado falhou"));
         }
       });
     });
@@ -126,12 +126,12 @@ class Firebase {
 
             resolve({ products, lastKey });
           } catch (e) {
-            reject(e?.message || ":( Failed to fetch products.");
+            reject(e?.message || ":( Falha ao buscar produtos.");
           }
         } else {
           const timeout = setTimeout(() => {
             didTimeout = true;
-            reject(new Error("Request timeout, please try again"));
+            reject(new Error("Solicitar tempo limite, tente novamente"));
           }, 15000);
 
           try {
@@ -155,7 +155,7 @@ class Firebase {
             }
           } catch (e) {
             if (didTimeout) return;
-            reject(e?.message || ":( Failed to fetch products.");
+            reject(e?.message || ":( Falha ao buscar produtos.");
           }
         }
       })();
@@ -171,7 +171,7 @@ class Firebase {
 
         const timeout = setTimeout(() => {
           didTimeout = true;
-          reject(new Error("Request timeout, please try again"));
+          reject(new Error("Solicitar tempo limite, tente novamente"));
         }, 15000);
 
         try {

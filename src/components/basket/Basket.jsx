@@ -25,7 +25,7 @@ const Basket = () => {
     if (didMount && firebase.auth.currentUser && basket.length !== 0) {
       firebase.saveBasketItems(basket, firebase.auth.currentUser.uid)
         .then(() => {
-          console.log('Item saved to basket');
+          console.log('Item salvo na sacola');
         })
         .catch((e) => {
           console.log(e);
@@ -60,7 +60,7 @@ const Basket = () => {
         isOpen={isOpenModal}
         onRequestClose={onCloseModal}
       >
-        <p className="text-center">You must sign in to continue checking out</p>
+        <p className="text-center">Você deve fazer login para continuar verificando</p>
         <br />
         <div className="d-flex-center">
           <button
@@ -76,7 +76,7 @@ const Basket = () => {
             onClick={onSignInClick}
             type="button"
           >
-            Sign in to checkout
+            Faça login para finalizar a compra
           </button>
         </div>
       </Modal>
@@ -84,7 +84,7 @@ const Basket = () => {
         <div className="basket-list">
           <div className="basket-header">
             <h3 className="basket-header-title">
-              My Basket &nbsp;
+              Minha sacola &nbsp;
               <span>
                 (
                 {` ${basket.length} ${basket.length > 1 ? 'items' : 'item'}`}
@@ -98,7 +98,7 @@ const Basket = () => {
                   onClick={onClickToggle}
                   role="presentation"
                 >
-                  Close
+                  Fechar
                 </span>
               )}
             </BasketToggle>
@@ -108,12 +108,12 @@ const Basket = () => {
               onClick={onClearBasket}
               type="button"
             >
-              <span>Clear Basket</span>
+              <span>Esvaziar sacola</span>
             </button>
           </div>
           {basket.length <= 0 && (
             <div className="basket-empty">
-              <h5 className="basket-empty-msg">Your basket is empty</h5>
+              <h5 className="basket-empty-msg">Sua sacola está vazia</h5>
             </div>
           )}
           {basket.map((product, i) => (
@@ -128,7 +128,7 @@ const Basket = () => {
         </div>
         <div className="basket-checkout">
           <div className="basket-total">
-            <p className="basket-total-title">Subtotal Amout:</p>
+            <p className="basket-total-title">Subtotal Quant:</p>
             <h2 className="basket-total-amount">
               {displayMoney(calculateTotal(basket.map((product) => product.price * product.quantity)))}
             </h2>
@@ -139,7 +139,7 @@ const Basket = () => {
             onClick={onCheckOut}
             type="button"
           >
-            Check Out
+            Confira
           </button>
         </div>
       </div>

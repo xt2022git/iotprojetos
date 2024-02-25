@@ -71,7 +71,7 @@ const ViewProduct = () => {
           <Link to={SHOP}>
             <h3 className="button-link d-inline-flex">
               <ArrowLeftOutlined />
-              &nbsp; Back to shop
+              &nbsp; De volta à loja
             </h3>
           </Link>
           <div className="product-modal">
@@ -110,11 +110,11 @@ const ViewProduct = () => {
               <div className="divider" />
               <br />
               <div>
-                <span className="text-subtle">Lens Width and Frame Size</span>
+                <span className="text-subtle">Você fez uma escolha certa</span>
                 <br />
                 <br />
                 <Select
-                  placeholder="--Select Size--"
+                  placeholder="** Escolha medida **"
                   onChange={onSelectedSizeChange}
                   options={product.sizes.sort((a, b) => (a < b ? -1 : 1)).map((size) => ({ label: `${size} mm`, value: size }))}
                   styles={{ menu: (provided) => ({ ...provided, zIndex: 10 }) }}
@@ -123,13 +123,13 @@ const ViewProduct = () => {
               <br />
               {product.availableColors.length >= 1 && (
                 <div>
-                  <span className="text-subtle">Choose Color</span>
+                  {/*<span className="text-subtle">Escolha a cor</span>
                   <br />
                   <br />
                   <ColorChooser
                     availableColors={product.availableColors}
                     onSelectedColorChange={onSelectedColorChange}
-                  />
+                  />*/}
                 </div>
               )}
               <h1>{displayMoney(product.price)}</h1>
@@ -139,21 +139,21 @@ const ViewProduct = () => {
                   onClick={handleAddToBasket}
                   type="button"
                 >
-                  {isItemOnBasket(product.id) ? 'Remove From Basket' : 'Add To Basket'}
+                  {isItemOnBasket(product.id) ? 'Remover da sacola' : 'Adicionar a sacola'}
                 </button>
               </div>
             </div>
           </div>
           <div style={{ marginTop: '10rem' }}>
             <div className="display-header">
-              <h1>Recommended</h1>
-              <Link to={RECOMMENDED_PRODUCTS}>See All</Link>
+              <h1>Recomendados</h1>
+              <Link to={RECOMMENDED_PRODUCTS}>Veja tudo</Link>
             </div>
             {errorFeatured && !isLoadingFeatured ? (
               <MessageDisplay
                 message={error}
                 action={fetchRecommendedProducts}
-                buttonLabel="Try Again"
+                buttonLabel="Tente novamente"
               />
             ) : (
               <ProductShowcaseGrid products={recommendedProducts} skeletonCount={3} />

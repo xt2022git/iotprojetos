@@ -16,7 +16,7 @@ function* profileSaga({ type, payload }) {
 
         yield put(setLoading(false));
         yield call(history.push, '/profile');
-        yield call(displayActionMessage, 'Email Updated Successfully!', 'success');
+        yield call(displayActionMessage, 'E-mail atualizado com sucesso!', 'success');
       } catch (e) {
         console.log(e.message);
       }
@@ -50,20 +50,20 @@ function* profileSaga({ type, payload }) {
 
         yield put(setLoading(false));
         yield call(history.push, ACCOUNT);
-        yield call(displayActionMessage, 'Profile Updated Successfully!', 'success');
+        yield call(displayActionMessage, 'Perfil atualizado com sucesso!', 'success');
       } catch (e) {
         console.log(e);
         yield put(setLoading(false));
         if (e.code === 'auth/wrong-password') {
-          yield call(displayActionMessage, 'Wrong password, profile update failed :(', 'error');
+          yield call(displayActionMessage, 'Senha errada, falha na atualização do perfil:(', 'error');
         } else {
-          yield call(displayActionMessage, `:( Failed to update profile. ${e.message ? e.message : ''}`, 'error');
+          yield call(displayActionMessage, `:( Falha ao atualizar o perfil. ${e.message ? e.message : ''}`, 'error');
         }
       }
       break;
     }
     default: {
-      throw new Error('Unexpected action type.');
+      throw new Error('Tipo de ação inesperada.');
     }
   }
 }

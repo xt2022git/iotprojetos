@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 
 const Home = () => {
-  useDocumentTitle('IotProjetos | Home');
+  useDocumentTitle('Iot Projetos | Home');
   useScrollTop();
 
   const {

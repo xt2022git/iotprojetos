@@ -28,7 +28,7 @@ function* initRequest() {
 
 function* handleError(e) {
   yield put(setLoading(false));
-  yield put(setRequestStatus(e?.message || 'Failed to fetch products'));
+  yield put(setRequestStatus(e?.message || 'Falha ao buscar produtos'));
   console.log('ERROR: ', e);
 }
 
@@ -46,7 +46,7 @@ function* productSaga({ type, payload }) {
         const result = yield call(firebase.getProducts, payload);
 
         if (result.products.length === 0) {
-          handleError('No items found.');
+          handleError('Nenhum item encontrado.');
         } else {
           yield put(getProductsSuccess({
             products: result.products,
@@ -93,11 +93,11 @@ function* productSaga({ type, payload }) {
           id: key,
           ...product
         }));
-        yield handleAction(ADMIN_PRODUCTS, 'Item succesfully added', 'success');
+        yield handleAction(ADMIN_PRODUCTS, 'Item adicionado com sucesso', 'success');
         yield put(setLoading(false));
       } catch (e) {
         yield handleError(e);
-        yield handleAction(undefined, `Item failed to add: ${e?.message}`, 'error');
+        yield handleAction(undefined, `Falha ao adicionar item: ${e?.message}`, 'error');
       }
       break;
     }
@@ -112,7 +112,7 @@ function* productSaga({ type, payload }) {
           try {
             yield call(firebase.deleteImage, payload.id);
           } catch (e) {
-            console.error('Failed to delete image ', e);
+            console.error('Falha ao excluir imagem ', e);
           }
 
           const url = yield call(firebase.storeImage, payload.id, 'products', image);
@@ -143,8 +143,8 @@ function* productSaga({ type, payload }) {
             ...newUpdates,
             imageCollection: [{ id: new Date().getTime(), url: newUpdates.image }]
           };
-          // add image thumbnail to image collection from newUpdates to
-          // make sure you're adding the url not the file object.
+          //adiciona miniatura de imagem à coleção de imagens de newUpdates para
+          // certifique-se de adicionar o URL e não o objeto do arquivo.
         }
 
         yield call(firebase.editProduct, payload.id, newUpdates);
@@ -152,11 +152,11 @@ function* productSaga({ type, payload }) {
           id: payload.id,
           updates: newUpdates
         }));
-        yield handleAction(ADMIN_PRODUCTS, 'Item succesfully edited', 'success');
+        yield handleAction(ADMIN_PRODUCTS, 'Item editado com sucesso', 'success');
         yield put(setLoading(false));
       } catch (e) {
         yield handleError(e);
-        yield handleAction(undefined, `Item failed to edit: ${e.message}`, 'error');
+        yield handleAction(undefined, `Falha ao editar o item: ${e.message}`, 'error');
       }
       break;
     }
@@ -166,24 +166,24 @@ function* productSaga({ type, payload }) {
         yield call(firebase.removeProduct, payload);
         yield put(removeProductSuccess(payload));
         yield put(setLoading(false));
-        yield handleAction(ADMIN_PRODUCTS, 'Item succesfully removed', 'success');
+        yield handleAction(ADMIN_PRODUCTS, 'Item removido com sucesso', 'success');
       } catch (e) {
         yield handleError(e);
-        yield handleAction(undefined, `Item failed to remove: ${e.message}`, 'error');
+        yield handleAction(undefined, `Falha ao remover item: ${e.message}`, 'error');
       }
       break;
     }
     case SEARCH_PRODUCT: {
       try {
         yield initRequest();
-        // clear search data
+        //limpa os dados da pesquisa
         yield put(clearSearchState());
 
         const state = yield select();
         const result = yield call(firebase.searchProducts, payload.searchKey);
 
         if (result.products.length === 0) {
-          yield handleError({ message: 'No product found.' });
+          yield handleError({ message: 'Nenhum produto encontrado.' });
           yield put(clearSearchState());
         } else {
           yield put(searchProductSuccess({
@@ -200,7 +200,7 @@ function* productSaga({ type, payload }) {
       break;
     }
     default: {
-      throw new Error(`Unexpected action type ${type}`);
+      throw new Error(`Tipo de ação inesperada ${type}`);
     }
   }
 }

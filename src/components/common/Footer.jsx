@@ -16,24 +16,25 @@ const Footer = () => {
       <div className="footer-col-1">
         <strong>
           <span>
-            Developed by
+            Desenvolvido por
             {' '}
-            <a href="https://github.com/jgudo">JULIUS GUEVARRA</a>
+            <a href="https://github.com/xt2022git" target="_blank">Iot Projetos</a>
           </span>
         </strong>
       </div>
       <div className="footer-col-2">
         <img alt="Footer logo" className="footer-logo" src={logo} />
         <h5>
-          &copy;&nbsp;
-          {new Date().getFullYear()}
+        Reservados &copy;&nbsp;
+          {new Date().getFullYear()}         
+
         </h5>
-      </div>
+      </div>      
       <div className="footer-col-3">
         <strong>
           <span>
-            Fork this project &nbsp;
-            <a href="https://github.com/jgudo/ecommerce-react">HERE</a>
+            Acompanhe estes projetos &nbsp;
+            <a href="https://github.com/xt2022git?tab=repositories" target="_blank">GitHub</a>
           </span>
         </strong>
       </div>

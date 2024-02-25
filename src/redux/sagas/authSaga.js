@@ -25,19 +25,19 @@ function* handleError(e) {
 
   switch (e.code) {
     case 'auth/network-request-failed':
-      yield put(setAuthStatus({ ...obj, message: 'Network error has occured. Please try again.' }));
+      yield put(setAuthStatus({ ...obj, message: 'Ocorreu um erro de rede. Por favor, tente novamente.' }));
       break;
     case 'auth/email-already-in-use':
-      yield put(setAuthStatus({ ...obj, message: 'Email is already in use. Please use another email' }));
+      yield put(setAuthStatus({ ...obj, message: 'O e-mail já está sendo usado. Por favor use outro e-mail' }));
       break;
     case 'auth/wrong-password':
-      yield put(setAuthStatus({ ...obj, message: 'Incorrect email or password' }));
+      yield put(setAuthStatus({ ...obj, message: 'Senha ou email incorretos' }));
       break;
     case 'auth/user-not-found':
-      yield put(setAuthStatus({ ...obj, message: 'Incorrect email or password' }));
+      yield put(setAuthStatus({ ...obj, message: 'Senha ou email incorretos' }));
       break;
     case 'auth/reset-password-error':
-      yield put(setAuthStatus({ ...obj, message: 'Failed to send password reset email. Did you type your email correctly?' }));
+      yield put(setAuthStatus({ ...obj, message: 'Falha ao enviar e-mail de redefinição de senha. Você digitou seu e-mail corretamente?' }));
       break;
     default:
       yield put(setAuthStatus({ ...obj, message: e.message }));
@@ -132,7 +132,7 @@ function* authSaga({ type, payload }) {
         yield put(setAuthStatus({
           success: true,
           type: 'reset',
-          message: 'Password reset email has been sent to your provided email.'
+          message: 'O e-mail de redefinição de senha foi enviado para o e-mail fornecido.'
         }));
         yield put(setAuthenticating(false));
       } catch (e) {
@@ -180,7 +180,7 @@ function* authSaga({ type, payload }) {
         success: true,
         type: 'auth',
         isError: false,
-        message: 'Successfully signed in. Redirecting...'
+        message: 'Login realizado com sucesso. Redirecionando...'
       }));
       yield put(setAuthenticating(false));
       break;
@@ -199,7 +199,7 @@ function* authSaga({ type, payload }) {
       break;
     }
     default: {
-      throw new Error('Unexpected Action Type.');
+      throw new Error('Tipo de ação inesperada.');
     }
   }
 }

@@ -33,21 +33,21 @@ const ProductList = (props) => {
 
   if (filteredProducts.length === 0 && !isLoading) {
     return (
-      <MessageDisplay message={requestStatus?.message || 'No products found.'} />
+      <MessageDisplay message={requestStatus?.message || 'Nenhum produto encontrado.'} />
     );
   } if (filteredProducts.length === 0 && requestStatus) {
     return (
       <MessageDisplay
-        message={requestStatus?.message || 'Something went wrong :('}
+        message={requestStatus?.message || 'Algo está errado:('}
         action={fetchProducts}
-        buttonLabel="Try Again"
+        buttonLabel="Tente novamente"
       />
     );
   }
   return (
     <Boundary>
       {children}
-      {/* Show 'Show More' button if products length is less than total products */}
+      {/* Show 'Botão Mostrar mais' se o comprimento dos produtos for menor que o total de produtos */}
       {products.items.length < products.total && (
         <div className="d-flex-center padding-l">
           <button
@@ -56,7 +56,7 @@ const ProductList = (props) => {
             onClick={fetchProducts}
             type="button"
           >
-            {isFetching ? 'Fetching Items...' : 'Show More Items'}
+            {isFetching ? 'Buscando itens...' : 'Mostrar mais itens'}
           </button>
         </div>
       )}

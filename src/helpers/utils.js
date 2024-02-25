@@ -3,8 +3,10 @@ export const displayDate = (timestamp) => {
   const date = new Date(timestamp);
 
   const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June', 'July',
-    'August', 'September', 'October', 'November', 'December'
+   /*'January', 'February', 'March', 'April', 'May', 'June', 'July',
+    'August', 'September', 'October', 'November', 'December'*/
+    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+    'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
   ];
 
   const day = date.getDate();
@@ -16,9 +18,9 @@ export const displayDate = (timestamp) => {
 };
 
 export const displayMoney = (n) => {
-  const format = new Intl.NumberFormat('en-US', {
+  const format = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
-    currency: 'USD'
+    currency: 'BRL'
   });
 
   // or use toLocaleString()

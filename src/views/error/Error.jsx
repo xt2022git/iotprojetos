@@ -7,14 +7,14 @@ const Error = ({ history }) => {
 
   return (
     <div className="page-not-found">
-      <h1>:( An error has occured. Please try again.</h1>
+      <h1>:( Ocorreu um erro. Por favor, tente novamente.</h1>
       <br />
       <button
         className="button"
         onClick={() => history.push('/')}
         type="button"
       >
-        Try Again
+        Tente novamente
       </button>
     </div>
 

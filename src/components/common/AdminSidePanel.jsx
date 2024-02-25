@@ -11,11 +11,11 @@ const SideNavigation = () => (
           className="sidenavigation-menu"
           to={ADMIN_PRODUCTS}
         >
-          Products
+          Produtos
         </NavLink>
       </div>
       <div className="sidenavigation-item">
-        <h4 className="sidenavigation-menu my-0">Users</h4>
+        <h4 className="sidenavigation-menu my-0">Usuários</h4>
       </div>
     </div>
   </aside>

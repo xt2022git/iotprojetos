@@ -29,7 +29,7 @@ const InputColor = (props) => {
             <span className="label-input label-error">{form.errors[name]}</span>
           ) : (
             <label className="label-input" htmlFor={name}>
-              Available Colors
+            Cores disponíveis
             </label>
           )}
           {selectedColor && (
@@ -42,7 +42,7 @@ const InputColor = (props) => {
                 role="presentation"
               >
                 <i className="fa fa-check" />
-                Add Selected Color
+                Adicionar cor selecionada
               </h4>
             </>
           )}
@@ -55,7 +55,7 @@ const InputColor = (props) => {
         />
       </div>
       <div className="product-form-field">
-        <span className="d-block padding-s">Selected Color(s)</span>
+        <span className="d-block padding-s">Cor selecionada(s)</span>
         <div className="color-chooser">
           {form.values[name]?.map((color, index) => (
             <div

@@ -35,7 +35,7 @@ const Search = ({ match }) => {
       <main className="content">
         <MessageDisplay
           message={store.requestStatus}
-          desc="Try using correct filters or keyword."
+          desc="Tente usar filtros ou palavras-chave corretas."
         />
       </main>
     );

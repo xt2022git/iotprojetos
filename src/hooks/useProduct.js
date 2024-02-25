@@ -27,13 +27,13 @@ const useProduct = (id) => {
               setLoading(false);
             }
           } else {
-            setError('Product not found.');
+            setError('Produto não encontrado.');
           }
         }
       } catch (err) {
         if (didMount) {
           setLoading(false);
-          setError(err?.message || 'Something went wrong.');
+          setError(err?.message || 'Algo está errado..');
         }
       }
     })();

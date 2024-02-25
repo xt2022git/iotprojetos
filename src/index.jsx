@@ -26,7 +26,7 @@ firebase.auth.onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(onAuthStateSuccess(user));
   } else {
-    store.dispatch(onAuthStateFail('Failed to authenticate'));
+    store.dispatch(onAuthStateFail('Falha ao autenticar'));
   }
   // Então renderiza o aplicativo após verificar o estado de autenticação
   render(<App store={store} persistor={persistor} />, root);

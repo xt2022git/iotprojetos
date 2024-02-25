@@ -28,7 +28,7 @@ self.addEventListener("activate", function (event) {
 						return !validCacheSet.has(cacheName);
 					})
 					.map(function (cacheName) {
-						console.log("deleting cache", cacheName);
+						console.log("Excluindo cache", cacheName);
 						return caches.delete(cacheName);
 					})
 			);
