@@ -21,7 +21,8 @@ const SocialLogin = ({ isLoading }) => {
 
   return (
     <div className="auth-provider">
-      <button
+      
+    <button
         className="button auth-provider-button provider-facebook"
         disabled={isLoading}
         onClick={onSignInWithFacebook}
@@ -31,6 +32,7 @@ const SocialLogin = ({ isLoading }) => {
         <FacebookOutlined />
         Entre com Facebook
       </button>
+      
       <button
         className="button auth-provider-button provider-google"
         disabled={isLoading}
@@ -40,6 +42,7 @@ const SocialLogin = ({ isLoading }) => {
         <GoogleOutlined />
         Entre com Google
       </button>
+      
       <button
         className="button auth-provider-button provider-github"
         disabled={isLoading}
