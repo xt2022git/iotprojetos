@@ -36,14 +36,16 @@ const ForgotPassword = () => {
 
   return (
     <div className="forgot_password">
-      {forgotPWStatus?.message && (
+      {forgotPWStatus?.message && (        
         <h5 className={`text-center ${authStatus?.success ? 'toast-success' : 'toast-error'}`}>
           {authStatus.message}
         </h5>
       )}
+
       <h2>Esqueceu sua senha?</h2>
-      <p>Digite seu endereço de e-mail e lhe enviaremos um e-mail de redefinição de senha.</p>
-      <br />
+
+      <p>Digite seu endereço de e-mail e lhe enviaremos um e-mail de redefinição de senha.</p><br />
+      
       <input
         field="email"
         required
@@ -56,8 +58,10 @@ const ForgotPassword = () => {
         type="email"
         style={{ width: '100%' }}
       />
+
       <br />
       <br />
+
       <button
         className="button w-100-mobile"
         disabled={isSendingForgotPWRequest || authStatus?.success}
